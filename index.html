@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Rock Paper Scissors</title>
+    <title>Form exercise</title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css"/>
@@ -9,6 +9,39 @@
     <meta http-equiv="X-UA-Compatible" content="ie-edge">
 </head>
 <body>
+    <div class="formBox">
+        <form>
+            <label for="email">Type email</label>
+            <input type="email" id="email" name="email" placeholder="Insert email" required>
+
+            <label for="country">Which country do you leave?</label>
+            <select name="dropdown" id="country" class="choose-text" required>
+                <option disabled selected value>Where do you leave?</option>
+                <option value="tv">TV</option>
+                <option value="pub">Pub</option>
+                <option value="family-stand">Family Stand</option>
+                <option value="main-stand">Main Stand</option>
+                <option value="ultras-stand">Ultras Stand</option>
+              </select>
+
+              <label for="zipCode">Zip Code</label>
+              <input type="text" id="zipCode" placeholder="Zip code" required>
+
+              <label for="pass">Password</label>
+              <input type="password" id="pass" placeholder="Password" required>
+
+              <label for="passConf">Confirm password</label>
+              <input type="password" id="passConf" placeholder="Confirm password" required>
+
+              <input type="submit" value="Submit" id="submitBtn">
+        </form>
+    </div>
+
+
+
+
+
+
 
     <script type="text/javascript" src="script.js" ></script>
 </body>

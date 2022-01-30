@@ -1,3 +1,7 @@
 body {
     background-color: blueviolet;
 }
+
+input:invalid {
+    border: 2px solid red;
+}
