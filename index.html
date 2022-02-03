@@ -10,12 +10,14 @@
 </head>
 <body>
     <div class="formBox">
-        <form>
+        <form novalidate>
             <label for="email">Type email</label>
-            <input type="email" id="email" name="email" placeholder="Insert email" required>
+            <input type="email" id="email" name="email" placeholder="Insert email" minLength="8" required>
+            <span class="errorEmail"></span>
+
 
             <label for="country">Which country do you live?</label>
-            <select name="dropdown" id="country" class="choose-text" required>
+            <select name="dropdown" id="country" class="choose-text" pattern="" required>
                 <option disabled selected value>Where do you live?</option>
                 <option value="silesia">Silesia</option>
                 <option value="austriaH">Austro-Hungarian Monarchy</option>
@@ -24,15 +26,23 @@
                 <option value="sanMarino">San Marino</option>
                 <option value="vatican">Vatican</option>
               </select>
+              <span class="errorCountry"></span>
+
 
               <label for="zipCode">Zip Code</label>
-              <input type="text" id="zipCode" placeholder="Zip code" required>
+              <input type="text" id="zipCode" placeholder="Zip code" minlength="6" maxlength="6" pattern="\d{2}-\d{3}" required>
+              <span class="errorZip"></span>
+
 
               <label for="pass">Password</label>
-              <input type="password" id="pass" placeholder="Password" required>
+              <input type="password" id="pass" placeholder="Password" minlength="8" required>
+              <span class="errorPass"></span>
+
 
               <label for="passConf">Confirm password</label>
               <input type="password" id="passConf" placeholder="Confirm password" required>
+              <span class="errorPassConf"></span>
+
 
               <input type="submit" value="Submit" id="submitBtn">
         </form>
