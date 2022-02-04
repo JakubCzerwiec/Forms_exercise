@@ -23,19 +23,18 @@ email.addEventListener('input', (e) => {
         errorEmail.textContent = '';
         errorEmail.className = 'errorEmail';
     } else {
-        showError()
+        showEmailError()
     }
 })
 
 // country
-// Zrobić żeby error wyskakiwał tylko po submicie!!!!
 
 country.addEventListener('input', (e) => {
     if (country.validity.valid) {
         errorCountry.textContent = '';
         errorCountry.className = 'errorCountry';
     } else {
-        showError()
+        showCountryError()
     }
 })
 
@@ -46,7 +45,7 @@ zipCode.addEventListener('input', (e) => {
         errorZip.textContent = '';
         errorZip.className = 'errorZip';
     } else {
-        showError()
+        showZipError()
     }
 })
 
@@ -57,7 +56,7 @@ pass.addEventListener('input', (e) => {
         errorPass.textContent = '';
         errorPass.className = 'errorPass';
     } else {
-        showError()
+        showPassError()
     }
 })
 
@@ -68,20 +67,36 @@ passConf.addEventListener('input', (e) => {
         errorPassConf.textContent = '';
         errorPassConf.className = 'errorPassConf';
     } else {
-        showError()
+        showPassConfError()
     }
 })
 
 
 form.addEventListener('submit', (e) => {
     if (!email.validity.valid) {
-        showError();
+        showEmailError();
         e.preventDefault();
-    } 
+    } else if (!country.validity.valid) {
+        showCountryError();
+        e.preventDefault();
+    } else if (!zipCode.validity.valid) {
+        showZipError();
+        e.preventDefault();
+    } else if (!pass.validity.valid) {
+        showPassError();
+        e.preventDefault();
+    } else if (!passConf.validity.valid) {
+        showPassConfError();
+        e.preventDefault();
+    } else if (passConf.value !== pass.value) {
+        errorPassConf.textContent = 'Passwords are not the same';
+        errorPassConf.className = 'errorPassConf active';
+        e.preventDefault();
+    }
 })
 
 
-const showError = () => {
+const showEmailError = () => {
     // emali
     if (email.validity.valueMissing) {
         errorEmail.textContent = 'You need to enter an email address.';
@@ -92,47 +107,47 @@ const showError = () => {
     }
 
     errorEmail.className = 'errorEmail active';
-
+    }
 
     // Country
-    if (!country.validity.patterMismatch) {
+const showCountryError = () => {
+        if (!country.validity.patternMismatch) {
         errorCountry.textContent = 'You need to choose one!';
     } 
 
     errorCountry.className = 'errorCountry active';
-
+    }
 
     // Zip
-    if (zipCode.validity.valueMissing) {
+const showZipError = () => {
+        if (zipCode.validity.valueMissing) {
         errorZip.textContent = 'You need to enter a Zip Code.';
-    } else if (zipCode.validity.patterMismatch) {
-        errorZip.textContent = 'Value need to be proper Zip Code.';
+    } else if (zipCode.validity.patternMismatch) {
+        errorZip.textContent = 'Value need to be proper Zip Code (XX-XXX).';
     } else if (zipCode.validity.tooShort) {
         errorZip.textContent = 'Value is to short';
     }
 
     errorZip.className = 'errorZip active';
-
+    }
 
     // Pass
-    if (pass.validity.valueMissing) {
+const showPassError = () => {
+        if (pass.validity.valueMissing) {
         errorPass.textContent = 'You need to set up password';
     } else if (pass.validity.tooShort) {
         errorPass.textContent = 'Password is to short (min. 8 characters).';
     }
 
     errorPass.className = 'errorPass active';
-
+    }
 
     // Pass confirm
-    if (passConf.validity.valueMissing) {
+const showPassConfError = () => {
+        if (passConf.validity.valueMissing) {
         errorPassConf.textContent = 'You need to confirm password.';
-    } else if (passConf.value !== pass.value) {
-        errorPassConf.textContent = 'Passwords are not the same';
     } 
-
-    errorPassConf.className = 'errorPassConf active';
-}
+    }
 
 
 

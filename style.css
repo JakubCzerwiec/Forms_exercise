@@ -31,56 +31,15 @@ select {
     margin: 2em auto;
 }
 
-.errorEmail {
-    width: 100%;
+.errorEmail, .errorCountry, .errorZip, .errorPass, .errorPassConf {
+    width: 40%;
     background-color: blueviolet;
     color: white;
 }
 
-.errorEmail.active {
+.errorEmail.active, .errorCountry.active, .errorZip.avtive, .errorPass.active, .errorPassConf.active {
     padding: .3em;
 }
-
-.errorCountry {
-    width: 100%;
-    background-color: blueviolet;
-    color: white;
-}
-
-.errorCountry.active {
-    padding: .3em;
-}
-
-.errorZip {
-    width: 100%;
-    background-color: blueviolet;
-    color: white;
-}
-
-.errorZip.avtive {
-    padding: .3em;
-}
-
-.errorPass {
-    width: 100%;
-    background-color: blueviolet;
-    color: white;
-}
-
-.errorPass.active {
-    padding: .3em;
-}
-
-.errorPassConf {
-    width: 100%;
-    background-color: blueviolet;
-    color: white;
-}
-
-.errorPassConf.active {
-    padding: .3em;
-}
-
 
 #submitBtn {
     width: max-content;
